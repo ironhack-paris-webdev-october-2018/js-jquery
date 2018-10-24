@@ -39,6 +39,11 @@ $(".scissors-btn").click(function () {
 var opponentSelection = $(".opponent > .selection");
 
 function submitSelection () {
+  if ($(".game-end").hasClass("showing")) {
+    // stop the function with "return" if they've already submitted
+    return;
+  }
+
   var classes = ["rock", "paper", "scissors"];
   var randomIndex = Math.floor(Math.random() * classes.length);
   var selection = classes[randomIndex];
@@ -73,9 +78,12 @@ $(document).keydown(function (event) {
     case 13: // Return key
       submitSelection();
       break;
+
+    case 27: // Escape key
+      resetGame();
+      break;
   }
 });
-
 
 function updateWinnerText() {
   if (playerSelection.hasClass("rock")) {
@@ -115,3 +123,14 @@ function updateWinnerText() {
     }
   }
 }
+
+function resetGame() {
+  playerSelection.removeClass("rock paper scissors");
+  opponentSelection.removeClass("rock paper scissors");
+  $(".game-end").removeClass("showing");
+  $(".submit-btn").fadeIn(1000);
+}
+
+$(".restart").click(function () {
+  resetGame();
+});
