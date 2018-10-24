@@ -88,7 +88,7 @@ $(document).keydown(function (event) {
 function updateWinnerText() {
   if (playerSelection.hasClass("rock")) {
     if (opponentSelection.hasClass("scissors")) {
-      // h2.innetHTML = "You win!";
+      // WITHOUT jQuery: h2.innetHTML = "You win!";
       $(".popup-content h2").html("You win!");
     }
     else if (opponentSelection.hasClass("paper")) {
@@ -100,7 +100,7 @@ function updateWinnerText() {
   }
   else if (playerSelection.hasClass("paper")) {
     if (opponentSelection.hasClass("rock")) {
-      // h2.innetHTML = "You win!";
+      // WITHOUT jQuery: h2.innetHTML = "You win!";
       $(".popup-content h2").html("You win!");
     }
     else if (opponentSelection.hasClass("scissors")) {
@@ -112,7 +112,7 @@ function updateWinnerText() {
   }
   else if (playerSelection.hasClass("scissors")) {
     if (opponentSelection.hasClass("paper")) {
-      // h2.innetHTML = "You win!";
+      // WITHOUT jQuery: h2.innetHTML = "You win!";
       $(".popup-content h2").html("You win!");
     }
     else if (opponentSelection.hasClass("rock")) {
